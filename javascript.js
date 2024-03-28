@@ -1,39 +1,70 @@
-function game(){
-	let ask = prompt("rock, paper or scissors?.. CHOOSE ONE!!")
-	let choice = ["rock","paper","scissors"]
-	let computerc = Math.floor(Math.random()* choice.length)
-	let genr = choice[computerc]
+document.addEventListener("DOMContentLoaded",function(){
+    let rock = document.querySelector("#rock");
+    let paper = document.querySelector("#paper");
+    let scissors = document.querySelector("#scissors");
 
-	if(ask === "rock" && genr === "rock"){
-		return "DRAW !!, Both choose rock"
-	}
-	else if(ask === "rock" && genr === "paper"){
-		return "Computer Wins !!, paper wraps rock"
-	}
-	else if(ask === "rock" && genr === "scissors"){
-		return "You Win !!, rock breaks scissors"
-	}
-	else if(ask === "paper" && genr === "rock"){
-		return "You Win !!, paper wraps rock "
-	}
-	else if(ask === "paper" && genr === "scissors"){
-		return "Computer Wins !!, scissors cut paper"
-	}
-	else if(ask === "paper" && genr === "paper"){
-		return "DRAWW !!, Both choose paper"
-	}
-	else if(ask === "scissors" && genr === "rock"){
-		return "Computer Wins !!, rock breaks scissors"
-	}
-	else if(ask === "scissors" && genr === "paper"){
-		return "You Win !!, scissors cut paper"
-	}
-	else if(ask === "scissors" && genr === "scissors"){
-		return "DRAW !!, Both choose scissors"
-	}
+    rock.addEventListener("click", inputRock);
+    paper.addEventListener("click", inputPaper);
+    scissors.addEventListener("click", inputScissors);
+})
+
+let random = function(){
+    list = ["rock", "paper", "scissors"];
+    let genr = Math.floor(Math.random()*list.length);
+    return list[genr];
 }
 
+function inputRock(){
+    let userChoice = "rock";
+    let compareChoice = random();
 
-console.log(game())
+    if(userChoice === compareChoice){
+		result = "DRAW !!, Both choose rock" 
+	}
+    else if(compareChoice === "paper"){
+		result = "You Loose !!, Computer choose paper"
+	}
+    else if(compareChoice === "scissors"){
+		result = "You Win !!, Computer choose scissors"
+	}
 
+    let ulist = document.querySelector("#ulist");
+    ulist.innerHTML += "<li>" + result + "</li>"
+     
+}
 
+function inputPaper(){
+    let userChoice = "paper";
+    let compareChoice = random();
+
+    if(userChoice === compareChoice){
+        result = "DRAW !!, Both choose paper"
+    }
+    else if(compareChoice === "rock"){
+        result = "You Win !!, Computer choose rock";
+    }
+    else if(compareChoice === "scissors"){
+        result = "You Loose !!, Computer choose scissors";
+    }
+
+    let ulist = document.querySelector("#ulist");
+    ulist.innerHTML += "<li>" + result + "</li>"
+}
+
+function inputScissors(){
+    let userChoice = "scissors";
+    let compareChoice = random();
+
+    if(userChoice === compareChoice){
+        result = "DRAW !!, Both choose paper"
+    }
+    else if(compareChoice === "rock"){
+        result = "You Loose !!, Computer choose rock";
+    }
+    else if(compareChoice === "paper"){
+        result = "You Win !!, Scissors cut paper";
+    }
+
+    let ulist = document.querySelector("#ulist");
+    ulist.innerHTML += "<li>" + result + "</li>"
+}
