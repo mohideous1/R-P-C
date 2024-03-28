@@ -1,11 +1,41 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <h2 style="margin-left: 35%; color: whitesmoke;">Please open console after you input your answer.</h2>
-        <h3 style="margin-left: 35%; color: whitesmoke;"> Refresh To Play Again :) .</h3>
         <meta charset="utf-8">
+        <style>
+            body{
+                margin: 0%;
+                padding: 0%;
+                background-color:#36454F;
+            }
+            h1{
+                text-align: center;
+                margin-top: 10%;
+            }
+            .playcase{
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                gap: 8%;
+                margin-top: 5%;
+            }
+
+            li{
+                font-size: 22px;
+                margin-left: 40%;
+            }
+        </style>
     </head>
-    <body style="background-color: #36454F;">
-       <script src="javascript.js"></script>
+    <body>
+        <script src="javascript.js"></script>
+        <h1> Rock Paper Scissors</h1>
+        <div class="playcase">
+            <button id="rock"> Rock </button>
+            <button id="paper"> Paper </button>
+            <button id="scissors"> Scissors </button>
+        </div>
+        <ul id="ulist">
+
+        </ul>
     </body>
 </html>
